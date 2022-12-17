@@ -1,0 +1,23 @@
+<button 
+    type="button" 
+    class="btn btn-secondary {{styles}}" 
+    (click)="click()" 
+    [disabled]="!cel.isEditable"
+    placement="bottom" 
+    (hidden)="unselectCel()"
+    [ngbPopover]="popContent">
+    {{cel.placeholder}}
+</button>
+
+<ng-template #popContent>
+    <div class="btn-group rounded" role="group">
+        <ng-container *ngFor="let item of [1, 2, 3, 4, 5, 6, 7, 8, 9]">
+            <button 
+                type="button" 
+                class="btn btn-dark" 
+                (click)="chooseNumber(item)">
+                {{item}}
+            </button>
+        </ng-container>
+    </div>
+</ng-template>

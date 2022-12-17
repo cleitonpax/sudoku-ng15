@@ -1,0 +1,15 @@
+<ng-container *ngIf="(grid$ | async) as grid">
+    <h1 *ngIf="grid.length === 0" class="lead text-muted">
+        <i class="fa-solid fa-circle-notch fa-spin me-2 text-white"></i>
+        Calculating Board 
+    </h1>
+
+    <ng-container *ngIf="grid.length > 0">
+        <app-error></app-error>
+        <div class="grid">
+            <ng-container *ngFor="let box of grid">
+                <app-box [box]="box" [@stagger]></app-box>
+            </ng-container>
+        </div>
+    </ng-container>
+</ng-container>

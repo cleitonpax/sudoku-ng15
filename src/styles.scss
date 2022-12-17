@@ -1,0 +1,12 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+
+.popover {
+    max-width: 352px !important;
+    box-shadow: 0 0 0 0.2rem rgb(129 126 126 / 92%);
+    --bs-popover-bg: rgb(129 126 126);
+    box-shadow: 2px 2px 4px 0 rgb(14 14 14 / 30%);
+
+    .btn {
+        margin-right: 2px;
+    }
+}

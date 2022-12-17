@@ -1,0 +1,3 @@
+<app-grid *ngIf="status$ | async"></app-grid>
+<app-modal *ngIf="isGameOver$ | async" [type]="'over'" ></app-modal>
+<app-modal *ngIf="isGameSolved$ | async" [type]="'win'" ></app-modal>
