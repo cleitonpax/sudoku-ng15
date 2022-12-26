@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { StageComponent } from './components/stage/stage.component';
+import { GameService } from './services/game.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { StageComponent } from './components/stage/stage.component';
     CelComponent,
     ErrorComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +32,9 @@ import { StageComponent } from './components/stage/stage.component';
     NgbPopoverModule,
     NgbPaginationModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [GameService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

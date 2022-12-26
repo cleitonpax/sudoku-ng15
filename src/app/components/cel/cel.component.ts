@@ -1,13 +1,13 @@
 import { Component, Input } from '@angular/core';
 
-import { ErrorsService } from 'src/app/services/errors.service';
-import { GameService } from 'src/app/services/game.service';
-import { iCel } from 'src/app/models/interfaces/i-cel.interface';
+import { ErrorsService } from '../../services/errors.service';
+import { GameService } from '../../services/game.service';
+import { iCel } from '../../models/interfaces/i-cel.interface';
 
 @Component({
   selector: 'app-cel',
   templateUrl: './cel.component.html',
-  styleUrls: ['./cel.component.scss']
+  styleUrls: ['./cel.component.scss'],
 })
 export class CelComponent {
   @Input() cel: iCel = {
@@ -24,23 +24,23 @@ export class CelComponent {
   }
 
   get styles(): string {
-    const isSolved = this.cel.placeholder === this.cel.value && this.cel.placeholder !== null
-      ? ' solved '
-      : null;
-    const isError = this.cel.placeholder !== null && this.cel.placeholder !== this.cel.value
-      ? ' error '
-      : null;
-    const isSelected = this.cel?.isSelected
-      ? ' active '
-      : null;
+    const isSolved =
+      this.cel.placeholder === this.cel.value && this.cel.placeholder !== null
+        ? ' solved '
+        : null;
+    const isError =
+      this.cel.placeholder !== null && this.cel.placeholder !== this.cel.value
+        ? ' error '
+        : null;
+    const isSelected = this.cel?.isSelected ? ' active ' : null;
 
     return isSolved || isError || isSelected || '';
   }
 
   constructor(
     private errorsService: ErrorsService,
-    private gameService: GameService,
-  ) { }
+    private gameService: GameService
+  ) {}
 
   click() {
     this.cel.isSelected = !this.cel.isSelected;
@@ -48,7 +48,7 @@ export class CelComponent {
 
   unselectCel() {
     this.cel.isSelected = false;
-  } 
+  }
 
   chooseNumber(value: number) {
     if (this.cel.value === value) {
@@ -57,7 +57,7 @@ export class CelComponent {
     } else {
       this.errorsService.addError();
     }
-    
+
     this.cel.placeholder = value;
   }
 }

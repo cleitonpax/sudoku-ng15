@@ -9,8 +9,8 @@ import {
   trigger,
 } from '@angular/animations';
 
-import { GameService } from 'src/app/services/game.service';
-import { iBox } from 'src/app/models/interfaces/i-box.interface';
+import { GameService } from '../../services/game.service';
+import { iBox } from '../../models/interfaces/i-box.interface';
 
 @Component({
   selector: 'app-grid',
@@ -18,22 +18,23 @@ import { iBox } from 'src/app/models/interfaces/i-box.interface';
   styleUrls: ['./grid.component.scss'],
   animations: [
     trigger('stagger', [
-      transition('* => *', [ 
-        query(':enter', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
             style({ opacity: 0 }),
-            stagger(50, [animate('0.1s', style({ opacity: 1 }))])
-          ], { optional: true }
-        )
-      ])
-    ])
-  ]
+            stagger(50, [animate('0.1s', style({ opacity: 1 }))]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class GridComponent implements AfterContentInit {
   grid$: Observable<iBox[]> = of([]);
 
-  constructor(
-    private gameService: GameService,
-  ) {}
+  constructor(private gameService: GameService) {}
 
   ngAfterContentInit(): void {
     setTimeout(() => {
@@ -41,5 +42,4 @@ export class GridComponent implements AfterContentInit {
       this.grid$ = this.gameService.getGrid();
     }, 1000);
   }
-
 }

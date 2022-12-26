@@ -1,13 +1,13 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
-import { ErrorsService } from 'src/app/services/errors.service';
-import { GameService } from 'src/app/services/game.service';
+import { ErrorsService } from '../../services/errors.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
-  styleUrls: ['./error.component.scss']
+  styleUrls: ['./error.component.scss'],
 })
 export class ErrorComponent implements OnDestroy {
   errors$: Observable<number>;
@@ -16,8 +16,8 @@ export class ErrorComponent implements OnDestroy {
 
   constructor(
     private errorsService: ErrorsService,
-    private gameService: GameService,
-  ) { 
+    private gameService: GameService
+  ) {
     this.errors$ = this.errorsService.getErrors();
     this.subscription$ = this.errors$.subscribe((errors) => {
       if (errors > this.maxErrors) {
@@ -29,5 +29,4 @@ export class ErrorComponent implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription$.unsubscribe();
   }
-  
 }

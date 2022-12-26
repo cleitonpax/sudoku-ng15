@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { GameService } from 'src/app/services/game.service';
+import { GameService } from '../../services/game.service';
 
 @Component({
   selector: 'app-modal',
@@ -10,10 +10,7 @@ import { GameService } from 'src/app/services/game.service';
 export class ModalComponent {
   @Input() type: 'over' | 'win' | null = null;
 
-  constructor(
-    private gameService: GameService,
-  ) { 
-  }
+  constructor(private gameService: GameService) {}
 
   restart() {
     this.gameService.restartGame();
