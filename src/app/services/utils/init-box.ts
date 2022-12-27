@@ -1,5 +1,5 @@
-import { iBox } from "src/app/models/interfaces/i-box.interface";
-import { iGridProps } from "../../models/interfaces/i-grid-props.interface";
+import { iBox } from "@models/interfaces/i-box.interface";
+import { iGridProps } from "@models/interfaces/i-grid-props.interface";
 import { initCel } from "./init-cell";
 
 export function initBox(box: number, gridProps: iGridProps): iBox {

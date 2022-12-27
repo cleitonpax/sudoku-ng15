@@ -1,8 +1,8 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 
-import { ErrorsService } from 'src/app/services/errors.service';
-import { GameService } from 'src/app/services/game.service';
+import { ErrorsService } from '@services/errors.service';
+import { GameService } from '@services/game.service';
 
 @Component({
   selector: 'app-error',

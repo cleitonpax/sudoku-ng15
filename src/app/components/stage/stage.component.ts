@@ -1,8 +1,8 @@
 import { Observable, map } from 'rxjs';
 
 import { Component } from '@angular/core';
-import { GameService } from 'src/app/services/game.service';
-import { GameStatus } from 'src/app/models/enums/game-status.enum';
+import { GameService } from '@services/game.service';
+import { GameStatus } from '@models/enums/game-status.enum';
 
 @Component({
   selector: 'app-stage',

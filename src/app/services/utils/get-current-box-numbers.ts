@@ -1,7 +1,7 @@
 import { filterBoxList } from "./filter-box-list";
 import { getCurrentColumnNumbers } from "./get-current-column-numbers";
 import { getCurrentRowNumbers } from "./get-current-row-numbers";
-import { iGridProps } from "src/app/models/interfaces/i-grid-props.interface";
+import { iGridProps } from "@models/interfaces/i-grid-props.interface";
 
 export function getCurrentBoxNumbers(
   rowNumber: number,

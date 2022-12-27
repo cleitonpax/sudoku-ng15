@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-import { iBox } from 'src/app/models/interfaces/i-box.interface';
+import { iBox } from '@models/interfaces/i-box.interface';
 
 @Component({
   selector: 'app-box',

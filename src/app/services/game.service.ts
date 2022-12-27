@@ -1,15 +1,15 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 
 import { ErrorsService } from './errors.service';
-import { GameStatus } from '../models/enums/game-status.enum';
+import { GameStatus } from '@models/enums/game-status.enum';
 import { Injectable } from '@angular/core';
 import { getCurrentBoxNumbers } from './utils/get-current-box-numbers';
 import { getCurrentColumnNumbers } from './utils/get-current-column-numbers';
 import { getCurrentRowNumbers } from './utils/get-current-row-numbers';
 import { getFilterRandomNumber } from './utils/get-filter-random-number';
 import { getRandomArray } from './utils/get-random-array';
-import { iBox } from '../models/interfaces/i-box.interface';
-import { iGridProps } from '../models/interfaces/i-grid-props.interface';
+import { iBox } from '@models/interfaces/i-box.interface';
+import { iGridProps } from '@models/interfaces/i-grid-props.interface';
 import { initBox } from './utils/init-box';
 
 @Injectable({

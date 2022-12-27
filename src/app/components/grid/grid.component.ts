@@ -9,8 +9,8 @@ import {
   trigger,
 } from '@angular/animations';
 
-import { GameService } from 'src/app/services/game.service';
-import { iBox } from 'src/app/models/interfaces/i-box.interface';
+import { GameService } from '@services/game.service';
+import { iBox } from '@models/interfaces/i-box.interface';
 
 @Component({
   selector: 'app-grid',

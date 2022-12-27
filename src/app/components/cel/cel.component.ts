@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { ErrorsService } from 'src/app/services/errors.service';
-import { GameService } from 'src/app/services/game.service';
-import { iCel } from 'src/app/models/interfaces/i-cel.interface';
+import { ErrorsService } from '@services/errors.service';
+import { GameService } from '@services/game.service';
+import { iCel } from '@models/interfaces/i-cel.interface';
 
 @Component({
   selector: 'app-cel',
