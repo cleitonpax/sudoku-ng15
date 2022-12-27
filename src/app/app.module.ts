@@ -23,7 +23,7 @@ import { StageComponent } from './components/stage/stage.component';
     CelComponent,
     ErrorComponent,
     HomeComponent,
-    ModalComponent
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,9 +31,9 @@ import { StageComponent } from './components/stage/stage.component';
     NgbPopoverModule,
     NgbPaginationModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

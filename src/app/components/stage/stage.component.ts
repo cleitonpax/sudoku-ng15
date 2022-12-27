@@ -14,15 +14,13 @@ export class StageComponent {
   isGameOver$: Observable<boolean>;
   isGameSolved$: Observable<boolean>;
 
-  constructor(
-    private gameService: GameService,
-  ) { 
+  constructor(private gameService: GameService) {
     this.status$ = this.gameService.getStatus();
     this.isGameOver$ = this.status$.pipe(
-      map((status) => status === GameStatus.over),
+      map((status) => status === GameStatus.over)
     );
     this.isGameSolved$ = this.status$.pipe(
-      map((status) => status === GameStatus.win),
+      map((status) => status === GameStatus.win)
     );
   }
 }

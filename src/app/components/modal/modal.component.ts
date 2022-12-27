@@ -10,10 +10,7 @@ import { GameService } from '@services/game.service';
 export class ModalComponent {
   @Input() type: 'over' | 'win' | null = null;
 
-  constructor(
-    private gameService: GameService,
-  ) { 
-  }
+  constructor(private gameService: GameService) {}
 
   restart() {
     this.gameService.restartGame();

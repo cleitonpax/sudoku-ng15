@@ -10,7 +10,8 @@ export function initBox(box: number, gridProps: iGridProps): iBox {
   for (let cel = 1; cel < gridProps.boxCols * gridProps.boxRows + 1; cel++) {
     const boxRow = Math.floor((box - 1) / gridProps.gridBoxesCols);
     const boxCol = (box - 1) % gridProps.gridBoxesCols;
-    const row = Math.floor((cel - 1) / gridProps.boxCols) + boxRow * gridProps.boxRows;
+    const row =
+      Math.floor((cel - 1) / gridProps.boxCols) + boxRow * gridProps.boxRows;
     const col = ((cel - 1) % gridProps.boxCols) + boxCol * gridProps.boxCols;
     const value = gridProps.solution[row][col];
     const newCel = initCel(box, cel, value, gridProps.filterId);
