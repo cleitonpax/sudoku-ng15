@@ -10,6 +10,7 @@ import {
 } from '@angular/animations';
 
 import { GameService } from '@services/game.service';
+import { fadeInOut } from 'src/app/utils/fade-in-out.animation';
 import { iBox } from '@models/interfaces/i-box.interface';
 
 @Component({
@@ -17,6 +18,7 @@ import { iBox } from '@models/interfaces/i-box.interface';
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.scss'],
   animations: [
+    fadeInOut,
     trigger('stagger', [
       transition('* => *', [
         query(

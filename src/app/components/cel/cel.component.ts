@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 import { ErrorsService } from '@services/errors.service';
 import { GameService } from '@services/game.service';
@@ -8,6 +9,20 @@ import { iCel } from '@models/interfaces/i-cel.interface';
   selector: 'app-cel',
   templateUrl: './cel.component.html',
   styleUrls: ['./cel.component.scss'],
+  animations: [
+    trigger('stagger', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0 }),
+            stagger(50, [animate('0.001s', style({ opacity: 1 }))]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class CelComponent {
   @Input() cel: iCel = {

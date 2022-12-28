@@ -1,3 +1,9 @@
+import {
+  NgbModule,
+  NgbPaginationModule,
+  NgbPopoverModule,
+} from '@ng-bootstrap/ng-bootstrap';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BoxComponent } from './components/box/box.component';
@@ -7,11 +13,9 @@ import { CelComponent } from './components/cel/cel.component';
 import { ErrorComponent } from './components/error/error.component';
 import { GridComponent } from './components/grid/grid.component';
 import { HomeComponent } from './components/home/home.component';
+import { LoaderComponent } from '@components/loader/loader.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbPopoverModule } from '@ng-bootstrap/ng-bootstrap';
 import { StageComponent } from './components/stage/stage.component';
 
 @NgModule({
@@ -24,6 +28,7 @@ import { StageComponent } from './components/stage/stage.component';
     ErrorComponent,
     HomeComponent,
     ModalComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
