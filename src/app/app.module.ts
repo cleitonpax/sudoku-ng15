@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BoxComponent } from './components/box/box.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { CelComponent } from './components/cel/cel.component';
 import { ErrorComponent } from './components/error/error.component';
 import { GridComponent } from './components/grid/grid.component';
@@ -36,6 +37,7 @@ import { StageComponent } from './components/stage/stage.component';
     NgbPopoverModule,
     NgbPaginationModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     NgbModule,
   ],
   providers: [],
