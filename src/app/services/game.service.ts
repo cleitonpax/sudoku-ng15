@@ -4,7 +4,6 @@ import { ErrorsService } from './errors.service';
 import { GameStatus } from '@models/enums/game-status.enum';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { getFilterRandomNumber } from './utils/get-filter-random-number';
 import { iBox } from '@models/interfaces/i-box.interface';
 
 @Injectable({
@@ -12,12 +11,11 @@ import { iBox } from '@models/interfaces/i-box.interface';
 })
 export class GameService {
   private boxRows = 3;
-  private filterId = getFilterRandomNumber();
   private grid: iBox[] = [];
   private gridBoxesRows = 3;
   private status$ = new BehaviorSubject<GameStatus>(GameStatus.init);
   private grid$ = new BehaviorSubject<iBox[]>(this.grid);
-  private api = 'https://294c-2804-7f0-bd82-86aa-b16-7d95-e397-99bc.sa.ngrok.io/sudoku-game';
+  private api = 'https://3f16-2804-7f0-bd82-86aa-9f4e-e5e6-fe4b-128b.sa.ngrok.io/sudoku-game';
 
   constructor(private errorsService: ErrorsService, private http: HttpClient) {}
 
@@ -40,6 +38,7 @@ export class GameService {
     this.http.get(this.api).subscribe({
       next: (data: any) => {
         this.status$.next(GameStatus.playing);
+        this.grid = data as iBox[];
         this.grid$.next(data);
       },
       error: (error) => {
