@@ -15,7 +15,7 @@ export class GameService {
   private gridBoxesRows = 3;
   private status$ = new BehaviorSubject<GameStatus>(GameStatus.init);
   private grid$ = new BehaviorSubject<iBox[]>(this.grid);
-  private api = 'https://3f16-2804-7f0-bd82-86aa-9f4e-e5e6-fe4b-128b.sa.ngrok.io/sudoku-game';
+  private api = 'https://gamming.herokuapp.com/sudoku-game';
 
   constructor(private errorsService: ErrorsService, private http: HttpClient) {}
 
