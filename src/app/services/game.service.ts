@@ -13,9 +13,10 @@ import { iGridProps } from '@models/interfaces/i-grid-props.interface';
 import { initBox } from './utils/init-box';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class GameService {
+
   private boxCols = 3;
   private boxRows = 3;
   private filterId = getFilterRandomNumber();
@@ -26,7 +27,9 @@ export class GameService {
   private status$ = new BehaviorSubject<GameStatus>(GameStatus.init);
   private grid$ = new BehaviorSubject<iBox[]>(this.grid);
 
-  constructor(private errorsService: ErrorsService) {}
+  constructor(
+    private errorsService: ErrorsService,
+  ) { }
 
   gameOver(): void {
     this.status$.next(GameStatus.over);
@@ -66,7 +69,7 @@ export class GameService {
       this.status$.next(GameStatus.playing);
 
       resolve(this.grid);
-    });
+    })
   }
 
   restartGame(): void {
@@ -76,7 +79,8 @@ export class GameService {
 
     setTimeout(() => {
       this.initGame();
-    }, 1000);
+    }
+      , 1000);
   }
 
   validateSolution(): void {
@@ -88,11 +92,7 @@ export class GameService {
   private initBoard() {
     this.grid = [];
     // Loop for each box...
-    for (
-      let box = 1;
-      box < this.gridBoxesCols * this.gridBoxesRows + 1;
-      box++
-    ) {
+    for (let box = 1; box < this.gridBoxesCols * this.gridBoxesRows + 1; box++) {
       const gridProps: iGridProps = {
         filterId: this.filterId,
         boxCols: this.boxCols,
@@ -109,7 +109,7 @@ export class GameService {
   private populateGrid(iteration: number): void {
     this.solution = [];
 
-    for (var row = 0; row < this.gridBoxesRows * this.boxRows; row++) {
+    for (let row = 0; row < this.gridBoxesRows * this.boxRows; row++) {
       this.solution.push([]);
 
       let randomList = getRandomArray();
@@ -124,7 +124,7 @@ export class GameService {
       };
 
       // loop for columns
-      for (var col = 0; col < this.gridBoxesCols * this.boxCols; col++) {
+      for (let col = 0; col < this.gridBoxesCols * this.boxCols; col++) {
         // condition only for the ROW 0, the numbers are random
         if (row === 0) {
           const randomNumber = randomList.pop();
@@ -134,10 +134,7 @@ export class GameService {
           // get the number from the previous row
           const currentRowNumbers = getCurrentRowNumbers(row, this.solution);
           // get the number from the previous column
-          const currentColumnNumbers = getCurrentColumnNumbers(
-            col,
-            this.solution
-          );
+          const currentColumnNumbers = getCurrentColumnNumbers(col, this.solution);
           // get the number from the previous box
           const currentBoxNumbers = getCurrentBoxNumbers(row, col, gridProps);
           const currentNumbers = [
@@ -150,31 +147,29 @@ export class GameService {
             (number: number) => !takenNumbers.has(number)
           );
           const randomNumber = availableNumbers.pop();
-          randomList = randomList.filter(
-            (number: number) => number !== randomNumber
-          );
+          randomList = randomList.filter((number: number) => number !== randomNumber);
           rowList.push(randomNumber!);
+          console.log('test ', iteration, this.solution);
         }
       }
     }
-    console.log('test ', iteration, this.solution);
   }
 
   private validateGame(): boolean {
     const boxes = [];
 
-    for (var i = 0; i < this.gridBoxesRows * this.boxRows; i++) {
-      var box = this.grid[i];
+    for (let i = 0; i < this.gridBoxesRows * this.boxRows; i++) {
+      const box = this.grid[i];
       boxes.push(!box.cels.some((cel) => cel.isEditable));
     }
 
-    return !boxes.some((box) => box === false);
+    return !boxes.some(box => box === false);
   }
 
   private validateGrid(): boolean {
-    for (var i = 0; i < this.gridBoxesRows * this.boxRows; i++) {
-      var row = this.solution[i];
-      var rowSet = new Set(row);
+    for (let i = 0; i < this.gridBoxesRows * this.boxRows; i++) {
+      const row = this.solution[i];
+      const rowSet = new Set(row);
       // @ts-ignore
       if (rowSet.has(undefined)) {
         return false;
@@ -182,4 +177,5 @@ export class GameService {
     }
     return true;
   }
+
 }
