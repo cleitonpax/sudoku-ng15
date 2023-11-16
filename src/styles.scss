@@ -14,4 +14,12 @@
         margin-right: 2px;
         width: 40px;
     }
+
+    &.bs-popover-bottom {
+        background: #134fa7 !important;
+
+        > .popover-arrow::after {
+            border-bottom-color: rgb(13 110 253 / 59%) !important;
+        }
+    }
 }

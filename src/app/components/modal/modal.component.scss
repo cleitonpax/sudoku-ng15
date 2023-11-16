@@ -1,9 +1,22 @@
 .win {
-    background: #3036e3ab;
+    .bg {
+        background: #3036e3ab;
+    }
 }
 
 .over {
-    background: #ff613d54;
+    .bg {
+        background: rgb(143 35 10 / 56%);
+    }
+}
+
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 $modal-fade-transform: scale(.8);
